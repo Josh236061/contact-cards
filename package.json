@@ -2,14 +2,15 @@
   "name": "contact-cards",
   "version": "1.0.0",
   "description": "Rice U Bootcamp Module Assignment 19: Contact Cards",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "cd server && node server.js",
-    "server": "cd server nodemon server.js --ignore client",
+    "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
-    "client": "cd client && npm start"
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" ",
+    "client": "cd client && npm start",
+    "heroku-prebuild": "npm install --dev"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,12 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "engines": {
+    "node": "17.x"
+  },
   "bugs": {
     "url": "https://github.com/Josh236061/contact-cards/issues"
   },
